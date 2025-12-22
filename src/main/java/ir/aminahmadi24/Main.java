@@ -21,5 +21,11 @@ public class Main {
         System.out.println("Customer sign in: ");
         System.out.println(customerService.signIn("amin@gmail.com", "Asf23@hsk"));
         System.out.println();
+
+        System.out.println("Customer edit address: ");
+        System.out.println(customerService.updateAddress("amin@gmail.com", "Asf23@hsk",
+                "Var"));
+
+
     }
 }

@@ -41,7 +41,7 @@ public class Validator {
         return hasUppercase && hasLowercase && hasDigit && hasSpecialChar;
     }
     public static boolean isAddressValid(String address){
-        if(address.length() < 5)
+        if(address.length() < 3)
             return false;
         return true;
     }

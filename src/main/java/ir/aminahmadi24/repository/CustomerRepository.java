@@ -28,4 +28,14 @@ public class CustomerRepository {
         return null;
     }
 
+    public boolean updateAddress(String email, String newAddress) {
+        for (int i = 0; i < CUSTOMERS_ARRAY.getSize(); i++) {
+            Customer c = (Customer) CUSTOMERS_ARRAY.getByIndex(i);
+            if(c.getEmail().equals(email)){
+                c.setAddress(newAddress);
+                return true;
+            }
+        }
+        return false;
+    }
 }

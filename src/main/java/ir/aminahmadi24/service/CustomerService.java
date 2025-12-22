@@ -29,5 +29,14 @@ public class CustomerService {
             return false;
         return customer.getPassword().equals(password);
     }
-
+    public boolean updateAddress(String email, String password, String newAddress){
+        Customer customer = customerRepository.findByEmail(email);
+        if(customer == null)
+            return false;
+        if(!customer.getPassword().equals(password))
+            return false;
+        if(!Validator.isAddressValid(newAddress))
+            return false;
+        return customerRepository.updateAddress(email, newAddress);
+    }
 }
