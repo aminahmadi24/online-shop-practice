@@ -19,4 +19,13 @@ public class CustomerRepository {
     public int getId(){
         return CUSTOMERS_ARRAY.getSize() + 1;
     }
+    public Customer findByEmail(String email){
+        for (int i = 0; i < CUSTOMERS_ARRAY.getSize(); i++) {
+            Customer c = (Customer) CUSTOMERS_ARRAY.getByIndex(i);
+            if(c.getEmail().equals(email))
+                return c;
+        }
+        return null;
+    }
+
 }

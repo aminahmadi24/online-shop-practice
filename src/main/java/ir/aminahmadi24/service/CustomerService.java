@@ -23,5 +23,11 @@ public class CustomerService {
         customer.setId(customerRepository.getId());
         return customerRepository.save(customer);
     }
+    public boolean signIn(String email, String password){
+        Customer customer = customerRepository.findByEmail(email);
+        if(customer == null)
+            return false;
+        return customer.getPassword().equals(password);
+    }
 
 }
