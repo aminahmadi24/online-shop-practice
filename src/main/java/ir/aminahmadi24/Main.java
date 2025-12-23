@@ -52,5 +52,9 @@ public class Main {
         System.out.println(productService.add(product1, "Mobile"));
         System.out.println(productService.add(product2, "Appliances"));
         System.out.println();
+
+        System.out.println("Find a product by name: ");
+        System.out.println(productService.findByName("s22"));
+        System.out.println();
     }
 }

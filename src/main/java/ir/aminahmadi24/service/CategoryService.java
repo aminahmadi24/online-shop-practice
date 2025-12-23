@@ -5,9 +5,11 @@ import ir.aminahmadi24.repository.CategoryRepository;
 
 public class CategoryService {
     private final CategoryRepository categoryRepository;
+
     public CategoryService(CategoryRepository categoryRepository){
         this.categoryRepository = categoryRepository;
     }
+
     public boolean add(Category category){
         if(category.getTitle().length() < 3)
             return false;
@@ -16,7 +18,12 @@ public class CategoryService {
         category.setId(categoryRepository.getId());
         return categoryRepository.save(category);
     }
+
     public int getIdByTitle(String title){
         return categoryRepository.getIdByTitle(title);
+    }
+
+    public String getTitleById(int id){
+        return categoryRepository.getTitleById(id);
     }
 }

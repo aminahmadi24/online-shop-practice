@@ -35,4 +35,12 @@ public class CategoryRepository {
         }
         return -1;
     }
+    public String getTitleById(int id){
+        for (int i = 0; i < CATEGORIES_ARRAY.getSize(); i++) {
+            Category c = (Category) CATEGORIES_ARRAY.getByIndex(i);
+            if(c.getId() == id)
+                return c.getTitle();
+        }
+        return null;
+    }
 }
