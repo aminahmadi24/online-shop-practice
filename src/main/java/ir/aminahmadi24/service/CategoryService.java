@@ -16,5 +16,7 @@ public class CategoryService {
         category.setId(categoryRepository.getId());
         return categoryRepository.save(category);
     }
-
+    public int getIdByTitle(String title){
+        return categoryRepository.getIdByTitle(title);
+    }
 }

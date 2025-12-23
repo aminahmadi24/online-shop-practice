@@ -27,4 +27,12 @@ public class CategoryRepository {
     public int getId(){
         return CATEGORIES_ARRAY.getSize() + 1;
     }
+    public int getIdByTitle(String title){
+        for (int i = 0; i < CATEGORIES_ARRAY.getSize(); i++) {
+            Category c = (Category) CATEGORIES_ARRAY.getByIndex(i);
+            if(c.getTitle().equals(title))
+                return c.getId();
+        }
+        return -1;
+    }
 }
