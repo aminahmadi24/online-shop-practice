@@ -23,4 +23,14 @@ public class ProductRepository {
         }
         return null;
     }
+
+    public DynamicArray findByCategoryId(int categoryId){
+        DynamicArray products = new DynamicArray("Product");
+        for (int i = 0; i < PRODUCTS_ARRAY.getSize(); i++) {
+            Product p = (Product) PRODUCTS_ARRAY.getByIndex(i);
+            if(p.getCategoryId() == categoryId)
+                products.add(p);
+        }
+        return products;
+    }
 }

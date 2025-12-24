@@ -1,5 +1,6 @@
 package ir.aminahmadi24;
 
+import ir.aminahmadi24.enums.ProductSortType;
 import ir.aminahmadi24.model.Category;
 import ir.aminahmadi24.model.Customer;
 import ir.aminahmadi24.model.Product;
@@ -9,6 +10,7 @@ import ir.aminahmadi24.repository.ProductRepository;
 import ir.aminahmadi24.service.CategoryService;
 import ir.aminahmadi24.service.CustomerService;
 import ir.aminahmadi24.service.ProductService;
+import ir.aminahmadi24.utility.DynamicArray;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,7 +27,11 @@ public class Main {
 
         Product product1 = new Product("S22", 120, "A good phone", 13);
         Product product2 = new Product(
-                "Vacuum cleaner", 40, "It's the best", 7);
+                "Vacuum cleaner", 401, "It's the best", 7);
+        Product product3 = new Product(
+                "Coffee maker", 42, "It's great", 32);
+        Product product4 = new Product(
+                "P30 pro", 75, "It's the best", 11);
         ProductService productService = new ProductService(new ProductRepository());
         productService.setCategoryService(categoryService);
 
@@ -51,10 +57,20 @@ public class Main {
         System.out.println("Add a product: ");
         System.out.println(productService.add(product1, "Mobile"));
         System.out.println(productService.add(product2, "Appliances"));
+        System.out.println(productService.add(product3, "Appliances"));
+        System.out.println(productService.add(product4, "Mobile"));
         System.out.println();
 
         System.out.println("Find a product by name: ");
         System.out.println(productService.findByName("s22"));
         System.out.println();
+
+        System.out.println("Find sorted products of a category: ");
+        Product[] products = productService.
+                findSortedProductsByCategoryTitle("Appliances", ProductSortType.DESC);
+        for (int i = 0; i < products.length; i++) {
+            System.out.println(products[i]);
+        }
+
     }
 }

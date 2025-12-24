@@ -40,4 +40,13 @@ public class Product {
     public int getCategoryId() {
         return categoryId;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
