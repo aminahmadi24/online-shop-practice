@@ -7,6 +7,7 @@ public class Product {
     private String description;
     private int stockQuantity;
     private int categoryId;
+
     public Product(String name, int price, String description,int stockQuantity){
         this.name = name;
         this.price = price;
@@ -39,6 +40,14 @@ public class Product {
 
     public int getCategoryId() {
         return categoryId;
+    }
+
+    public int getStockQuantity() {
+        return stockQuantity;
+    }
+
+    public void setStockQuantity(int stockQuantity) {
+        this.stockQuantity = stockQuantity;
     }
 
     @Override

@@ -38,6 +38,10 @@ public class ProductService {
                 product.getPrice(), product.getDescription(), categoryTitle);
     }
 
+    public Product findById(int id){
+        return productRepository.findById(id);
+    }
+
     public Product[] findSortedProductsByCategoryTitle(String categoryTitle, ProductSortType productSortType) {
         int categoryId = categoryService.getIdByTitle(categoryTitle);
         if (categoryId == -1)
@@ -84,4 +88,7 @@ public class ProductService {
         return products;
     }
 
+    public boolean decreaseStockQuantity(int id){
+        return productRepository.decreaseStockQuantity(id);
+    }
 }

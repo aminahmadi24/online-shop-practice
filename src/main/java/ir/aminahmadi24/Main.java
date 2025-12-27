@@ -1,16 +1,9 @@
 package ir.aminahmadi24;
 
 import ir.aminahmadi24.enums.ProductSortType;
-import ir.aminahmadi24.model.Category;
-import ir.aminahmadi24.model.Customer;
-import ir.aminahmadi24.model.Product;
-import ir.aminahmadi24.repository.CategoryRepository;
-import ir.aminahmadi24.repository.CustomerRepository;
-import ir.aminahmadi24.repository.ProductRepository;
-import ir.aminahmadi24.service.CategoryService;
-import ir.aminahmadi24.service.CustomerService;
-import ir.aminahmadi24.service.ProductService;
-import ir.aminahmadi24.utility.DynamicArray;
+import ir.aminahmadi24.model.*;
+import ir.aminahmadi24.repository.*;
+import ir.aminahmadi24.service.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,6 +27,8 @@ public class Main {
                 "P30 pro", 75, "It's the best", 11);
         ProductService productService = new ProductService(new ProductRepository());
         productService.setCategoryService(categoryService);
+
+
 
         System.out.println("Customer registration: ");
         System.out.println(customerService.signUp(customer1));
@@ -71,6 +66,20 @@ public class Main {
         for (int i = 0; i < products.length; i++) {
             System.out.println(products[i]);
         }
+        System.out.println();
+
+        ShoppingCart shoppingCart = new ShoppingCart(1);
+        ShoppingCartService shoppingCartService = new ShoppingCartService(new ShoppingCartRepository());
+        System.out.println("Create a shopping cart and add products to it: ");
+        System.out.println(shoppingCartService.add(shoppingCart));
+        System.out.println();
+
+        System.out.println("Add a product to a shopping cart: ");
+        CartItemService cartItemService = new CartItemService(new CartItemRepository());
+        cartItemService.setProductService(productService);
+        cartItemService.setShoppingCartService(shoppingCartService);
+        System.out.println(cartItemService.add(1, 1));
+
 
     }
 }

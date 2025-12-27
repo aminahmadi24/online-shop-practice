@@ -24,6 +24,15 @@ public class ProductRepository {
         return null;
     }
 
+    public Product findById(int id){
+        for (int i = 0; i < PRODUCTS_ARRAY.getSize(); i++) {
+            Product p = (Product) PRODUCTS_ARRAY.getByIndex(i);
+            if(p.getId() == id)
+                return p;
+        }
+        return null;
+    }
+
     public DynamicArray findByCategoryId(int categoryId){
         DynamicArray products = new DynamicArray("Product");
         for (int i = 0; i < PRODUCTS_ARRAY.getSize(); i++) {
@@ -32,5 +41,16 @@ public class ProductRepository {
                 products.add(p);
         }
         return products;
+    }
+
+    public boolean decreaseStockQuantity(int id){
+        for (int i = 0; i < PRODUCTS_ARRAY.getSize(); i++) {
+            Product p = (Product) PRODUCTS_ARRAY.getByIndex(i);
+            if(p.getId() == id){
+                p.setStockQuantity(p.getStockQuantity() - 1);
+                return true;
+            }
+        }
+        return false;
     }
 }
