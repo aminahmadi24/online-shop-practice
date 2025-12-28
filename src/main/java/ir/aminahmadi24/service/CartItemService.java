@@ -32,12 +32,10 @@ public class CartItemService {
         ShoppingCart shoppingCart = shoppingCartService.findById(shoppingCartId);
         if(shoppingCart == null)
             return false;
-        productService.decreaseStockQuantity(productId);
         CartItem cartItem = new CartItem(productId, shoppingCartId);
         cartItem.setId(cartItemRepository.getId());
         return cartItemRepository.save(cartItem);
     }
-
     public DynamicArray findShoppingCartProductIds(int shoppingCartId){
         return cartItemRepository.findShoppingCartProductIds(shoppingCartId);
     }

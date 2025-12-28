@@ -4,6 +4,7 @@ import ir.aminahmadi24.enums.ProductSortType;
 import ir.aminahmadi24.model.*;
 import ir.aminahmadi24.repository.*;
 import ir.aminahmadi24.service.*;
+import ir.aminahmadi24.utility.DynamicArray;
 
 public class Main {
     public static void main(String[] args) {
@@ -71,6 +72,7 @@ public class Main {
         ShoppingCart shoppingCart = new ShoppingCart(1);
         ShoppingCartService shoppingCartService = new ShoppingCartService(new ShoppingCartRepository());
         shoppingCartService.setProductService(productService);
+
         System.out.println("Create a shopping cart and add products to it: ");
         System.out.println(shoppingCartService.add(shoppingCart));
         System.out.println();
@@ -86,5 +88,11 @@ public class Main {
 
         System.out.println("Calculate shopping cart total price: ");
         System.out.println(shoppingCartService.calculateTotalPrice(shoppingCart.getId()));
+        System.out.println();
+
+        System.out.println("Process a shopping cart: ");
+        System.out.println(shoppingCartService.processShoppingCart(1));
+
+
     }
 }

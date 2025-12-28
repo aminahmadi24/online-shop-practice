@@ -42,6 +42,10 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
+    public DynamicArray findAll(){
+        return productRepository.findAll();
+    }
+
     public Product[] findSortedProductsByCategoryTitle(String categoryTitle, ProductSortType productSortType) {
         int categoryId = categoryService.getIdByTitle(categoryTitle);
         if (categoryId == -1)
@@ -88,8 +92,8 @@ public class ProductService {
         return products;
     }
 
-    public boolean decreaseStockQuantity(int id){
-        return productRepository.decreaseStockQuantity(id);
+    public void decreaseStockQuantity(DynamicArray productIds){
+         productRepository.decreaseStockQuantity(productIds);
     }
 
     public int getPriceById(int id){

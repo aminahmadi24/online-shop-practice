@@ -56,6 +56,7 @@ public class Product {
                 "name='" + name + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
+                ", stockQuantity=" + stockQuantity +
                 '}';
     }
 }
