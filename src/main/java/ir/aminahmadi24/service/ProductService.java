@@ -91,4 +91,11 @@ public class ProductService {
     public boolean decreaseStockQuantity(int id){
         return productRepository.decreaseStockQuantity(id);
     }
+
+    public int getPriceById(int id){
+        return productRepository.getPriceById(id);
+    }
+    public DynamicArray getProductsByIds(DynamicArray productsIds){
+        return productRepository.getProductsByIds(productsIds);
+    }
 }

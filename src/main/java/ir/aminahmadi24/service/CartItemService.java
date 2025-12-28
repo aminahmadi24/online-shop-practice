@@ -4,6 +4,7 @@ import ir.aminahmadi24.model.Product;
 import ir.aminahmadi24.model.CartItem;
 import ir.aminahmadi24.model.ShoppingCart;
 import ir.aminahmadi24.repository.CartItemRepository;
+import ir.aminahmadi24.utility.DynamicArray;
 
 public class CartItemService {
     private final CartItemRepository cartItemRepository;
@@ -35,6 +36,10 @@ public class CartItemService {
         CartItem cartItem = new CartItem(productId, shoppingCartId);
         cartItem.setId(cartItemRepository.getId());
         return cartItemRepository.save(cartItem);
+    }
+
+    public DynamicArray findShoppingCartProductIds(int shoppingCartId){
+        return cartItemRepository.findShoppingCartProductIds(shoppingCartId);
     }
 
 }

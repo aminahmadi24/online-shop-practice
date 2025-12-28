@@ -53,4 +53,27 @@ public class ProductRepository {
         }
         return false;
     }
+
+    public int getPriceById(int id){
+        for (int i = 0; i < PRODUCTS_ARRAY.getSize(); i++) {
+            Product p = (Product) PRODUCTS_ARRAY.getByIndex(i);
+            if(p.getId() == id)
+                return p.getPrice();
+        }
+        return -1;
+    }
+
+    public DynamicArray getProductsByIds(DynamicArray productsIds){
+        DynamicArray products = new DynamicArray("Product");
+        for (int i = 0; i < PRODUCTS_ARRAY.getSize(); i++) {
+            Product p = (Product) PRODUCTS_ARRAY.getByIndex(i);
+            for (int j = 0; j < productsIds.getSize(); j++) {
+                if(p.getId() == (int) productsIds.getByIndex(j)){
+                    products.add(p);
+                }
+            }
+        }
+        return products;
+    }
+
 }

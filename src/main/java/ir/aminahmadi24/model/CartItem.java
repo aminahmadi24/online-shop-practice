@@ -10,6 +10,18 @@ public class CartItem {
         this.shoppingCartId = shoppingCartId;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public int getShoppingCartId() {
+        return shoppingCartId;
+    }
+
     public void setId(int id) {
         this.id = id;
     }

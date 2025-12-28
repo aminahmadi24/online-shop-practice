@@ -70,6 +70,7 @@ public class Main {
 
         ShoppingCart shoppingCart = new ShoppingCart(1);
         ShoppingCartService shoppingCartService = new ShoppingCartService(new ShoppingCartRepository());
+        shoppingCartService.setProductService(productService);
         System.out.println("Create a shopping cart and add products to it: ");
         System.out.println(shoppingCartService.add(shoppingCart));
         System.out.println();
@@ -78,8 +79,12 @@ public class Main {
         CartItemService cartItemService = new CartItemService(new CartItemRepository());
         cartItemService.setProductService(productService);
         cartItemService.setShoppingCartService(shoppingCartService);
+        shoppingCartService.setCartItemService(cartItemService);
         System.out.println(cartItemService.add(1, 1));
+        System.out.println(cartItemService.add(2, 1));
+        System.out.println();
 
-
+        System.out.println("Calculate shopping cart total price: ");
+        System.out.println(shoppingCartService.calculateTotalPrice(shoppingCart.getId()));
     }
 }
